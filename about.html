@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About - Khim Inthongpan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Karla', sans-serif; }
+    html, body { height: 100%; overflow: hidden; }
+    body { display: flex; flex-direction: column; }
+    header, footer { background: #ffffff; padding: 1rem 3rem; }
+    header { display: flex; justify-content: space-between; align-items: center; border-bottom: none; }
+    .nav-left { font-weight: 500; }
+    .nav-right a { margin-left: 1.5rem; text-decoration: none; color: #333; font-weight: 500; }
+    .nav-right a { margin-left: 1.5rem; text-decoration: none; color: #333; font-weight: 500; }
+    main { flex-grow: 1; padding: 2rem; overflow: hidden; text-align: left; max-width: 600px; margin: 0 auto; }
+        .grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+    p { font-weight: 400; font-size: 12px; margin-right: 72px; margin-left: 72px; margin-bottom: 16px; color: #555; justify-content: left }
+    img { max-width: 100%; margin: 0rem 0; border-radius: 6px;transition: filter 0.3s ease }
+    footer { position: sticky; bottom: 0; background: #ffffff; padding: 1rem 3rem; display: flex; justify-content: left; align-items: center; gap: 1rem; }
+    footer img { width: 20px; height: 20px; }
+    .hamburger {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.mobile-nav a {
+  font-size: 24px;
+  margin: 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .nav-right {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-left">Khim Inthongpan</div>
+    <nav class="nav-right">
+      <a href="business.html">Business</a>
+      <a href="pleasure.html">Pleasure</a>
+      <a href="about.html">About</a>
+    </nav>
+        <button class="hamburger">&#9776;</button>
+
+<div class="mobile-nav">
+  <a href="business.html">Business</a>
+  <a href="pleasure.html">Pleasure</a>
+  <a href="about.html">About</a>
+</div>
+  </header>
+
+  <main>
+    <p>Khim Inthongpan is a designer whose work explores how people navigate systems both digital and social and how design can soften complexity without losing nuance. Her early work focused on climate glimpses, social innovation, and intervention strategies threads that continue to shape her design sensibility today. 
+    <p>Her interests span service design, visual storytelling, research-driven strategy, and tools that center empathy in everyday experiences. Her projects range from co-creating learning platforms that bridge cultures and languages, to redesigning public service flows for inclusivity, and shaping brand led digital experiences that feel both intuitive and intentional. As part of a consultancy, she’s worked across industries often translating between stakeholders, users, and developers to find clarity in constraint.
+    <p>Khim holds a Bachelor of Arts in Global Studies and Social Entrepreneurship with a focus in Intervention and Social Innovation, and currently leads projects at Sand Studio & Co.</p>
+
+    <img src="cover/khim.png" alt="Portrait">
+  </main>
+
+  <footer>
+    <a href="https://www.linkedin.com/in/chanikarnkhim/" target="_blank">
+      <img src="icon/linkedin.svg" alt="LinkedIn">
+    </a>
+    <a href="mailto:chanikarnkhim@gmail.com">
+      <img src="icon/mail.svg" alt="Email">
+    </a>
+    <a href="https://instagram.com/iskhim" target="_blank">
+      <img src="icon/ig.svg" alt="Instagram">
+    </a>
+  </footer>
+  <div class="custom-cursor"></div>
+
+  <script>
+  const hamburger = document.querySelector('.hamburger');
+  const mobileNav = document.querySelector('.mobile-nav');
+
+  hamburger.addEventListener('click', () => {
+    mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+  });
+</script>
+
+</body>
+</html>

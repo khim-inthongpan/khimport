@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business Projects - Khim Inthongpan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Karla', sans-serif; }
+    html, body { height: 100%; overflow: hidden; }
+    body { display: flex; flex-direction: column; }
+    header, footer { background: #ffffff; padding: 1rem 3rem; }
+    header { display: flex; justify-content: space-between; align-items: center; border-bottom: none; }
+    .nav-left { font-weight: 500; }
+    .nav-right a { margin-left: 1.5rem; text-decoration: none; color: #333; font-weight: 500; }
+    main { flex: 1; overflow-y: auto; padding: 2rem; }
+    .grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .hamburger {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+    .custom-cursor {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+    .custom-cursor {
+    display: none;
+  }
+}
+    .column { display: flex; flex-direction: column; gap: 16px; }
+    .project { background: #ffffff; border-radius: 8px; padding: 1rem; text-align: left; }
+    .project img, .project video { max-width: 100%; border-radius: 0px; margin-bottom: 0.5rem; }
+    .project h3 { font-weight: 500; font-size: 14px; margin-bottom: 8px; text-align:left; }
+    .project p { font-weight: 400; font-size: 12px; margin-bottom: 8px; color: #555; }
+    img { max-width: 100%; margin: 0.5rem 0; border-radius: 6px; }
+    footer { position: sticky; bottom: 0; background: #ffffff; padding: 1rem 3rem; display: flex; justify-content: left; align-items: center; gap: 1rem; }
+    footer img { width: 20px; height: 20px; }
+    body {cursor: none;}
+    .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background-color: #DDED4B;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    }
+.hamburger {
+  display: none; /* <- Hide by default */
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger img {
+  width: 24px;
+  height: 24px;
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.mobile-nav a {
+  font-size: 24px;
+  margin: 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.mobile-nav .close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .nav-right {
+    display: none;
+  }
+
+  .hamburger {
+    display: block; /* Show only on mobile */
+  }
+}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-left">Khim Inthongpan</div>
+    <nav class="nav-right">
+      <a href="business.html">Business</a>
+      <a href="pleasure.html">Pleasure</a>
+      <a href="about.html">About</a>
+    </nav>
+<button class="hamburger">
+  <img src="icon/rabbit.png" alt="Menu" />
+</button>
+  </header>
+
+<main>
+  <div class="grid">
+    <div class="column">
+      <div class="project">
+        <h3>Banglalink I Ryze App</h3>
+        <p>All Entertainment in your palm</p>
+        <img src="cover/ryze.gif" alt="Project 1">
+      </div>
+      <div class="project">
+        <h3>EDSY I AI Coach</h3>
+        <p>Design UI exceution to corresppond to younger audience</p>
+        <img src="cover/edsy.gif" alt="Project 1">
+      </div>
+      <div class="project">
+        <h3>Betagro I Buddy Fresh</h3>
+        <p>Creating Pet profile with tailor made meal prep service</p>
+        <img src="cover/fresh.png" alt="Project 2">
+      </div>
+    </div>
+    
+        <div class="column">
+      <div class="project">
+        <h3>FSB I International School Website</h3>
+        <p>Breaking language barriers, managing 4 languages within 1 Design</p>
+        <img src="cover/fsb.gif" alt="Project 6">
+      </div>
+      <div class="project">
+        <h3>Betagro I My Buddy</h3>
+        <p>Merging with Buddy fresh, apply the subscription model to e-commerce</p>
+        <img src="cover/buddy.png" alt="Project 5">
+      </div>
+       <div class="project">
+        <h3>Coding I Photobooth</h3>
+        <p>Exlporing frontend development, basic html and css.</p>
+        <img src="cover/booth.gif" alt="Project 5">
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="project">
+        <h3>COM7 I BNN Solar</h3>
+        <p>Make Energy Calculation simpler to understand </p>
+        <img src="cover/bnn.gif" alt="Project 3">
+      </div>
+      <div class="project">
+        <h3>COM7 I Case Clubp</h3>
+        <p>Not just e-commerce but personalize to style</p>
+        <img src="cover/case.gif" alt="Project 4">
+      </div>
+      <div class="project">
+        <h3>Lottie Lab I Exploration</h3>
+        <p>Figma heart for Valentine day</p>
+        <img src="cover/heart.gif" alt="Project 4">
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="project">
+        <h3>TTB I Smart Protect</h3>
+        <p>Evaluate your protections and explore the opportunities</p>
+        <img src="cover/ttb.gif" alt="Project 7">
+      </div>
+      <div class="project">
+        <h3>Loft I Micro Interaction for Landing page</h3>
+        <p>Description of business project 3.</p>
+        <img src="cover/loft.png" alt="Project 8">
+        <img src="cover/loft.gif" alt="Project 8">
+      </div>
+    </div>
+
+  </div>
+</main>
+
+
+  <footer>
+    <a href="https://www.linkedin.com/in/chanikarnkhim/" target="_blank">
+      <img src="icon/linkedin.svg" alt="LinkedIn">
+    </a>
+    <a href="mailto:chanikarnkhim@gmail.com">
+      <img src="icon/mail.svg" alt="Email">
+    </a>
+    <a href="https://instagram.com/iskhim" target="_blank">
+      <img src="icon/ig.svg" alt="Instagram">
+    </a>
+  </footer>
+  <div class="custom-cursor"></div>
+
+<script>
+    const password = "fromagoda"; // set your password here
+  const userInput = prompt("Enter password to view this site:");
+
+  if (userInput !== password) {
+    document.body.innerHTML = "<h1 style='text-align:center;margin-top:20%'>Access Denied</h1>";
+  }
+  const cursor = document.querySelector('.custom-cursor');
+
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.top = `${e.clientY}px`;
+    cursor.style.left = `${e.clientX}px`;
+  });
+</script>
+
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const mobileNav = document.querySelector('.mobile-nav');
+
+  hamburger.addEventListener('click', () => {
+    mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+  });
+</script>
+
+</body>
+</html>

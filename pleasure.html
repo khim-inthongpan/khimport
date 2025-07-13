@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business Projects - Khim Inthongpan</title>
+ <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Karla', sans-serif; }
+    html, body { height: 100%; overflow: hidden; }
+    body { display: flex; flex-direction: column; }
+    header, footer { background: #ffffff; padding: 1rem 3rem; }
+    header { display: flex; justify-content: space-between; align-items: center; border-bottom: none; }
+    .nav-left { font-weight: 500; }
+    .nav-right a { margin-left: 1.5rem; text-decoration: none; color: #333; font-weight: 500; }
+    main { flex: 1; overflow-y: auto; padding: 2rem; }
+    .grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .hamburger {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+    .custom-cursor {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+    .custom-cursor {
+    display: none;
+  }
+}
+    .column { display: flex; flex-direction: column; gap: 16px; }
+    .project { background: #ffffff; border-radius: 8px; padding: 1rem; text-align: left; }
+    .project img, .project video { max-width: 100%; border-radius: 0px; margin-bottom: 0.5rem; }
+    .project h3 { font-weight: 500; font-size: 14px; margin-bottom: 8px; text-align:left; }
+    .project p { font-weight: 400; font-size: 12px; margin-bottom: 8px; color: #555; }
+    img { max-width: 100%; margin: 0.5rem 0; border-radius: 6px;}
+    footer { position: sticky; bottom: 0; background: #ffffff; padding: 1rem 3rem; display: flex; justify-content: left; align-items: center; gap: 1rem; }
+    footer img { width: 20px; height: 20px; }
+    .hamburger {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger img {
+  width: 24px;
+  height: 24px;
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.mobile-nav a {
+  font-size: 24px;
+  margin: 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.mobile-nav .close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .nav-right {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-left">Khim Inthongpan</div>
+    <nav class="nav-right">
+      <a href="business.html">Business</a>
+      <a href="pleasure.html">Pleasure</a>
+      <a href="about.html">About</a>
+    </nav>
+<button class="hamburger">
+  <img src="icon/rabbit.png" alt="Menu" />
+</button>
+  </header>
+
+  <main>
+    <div class="grid">
+      <div class="column">
+        <div class="project">
+          <h3>Coding I Stranger Hub</h3>
+          <p>Exploring the theory of six degress of Separation</p>
+          <img src="cover/hub.gif" alt="Project 1">
+        </div>
+        <div class="project">
+          <h3>Sortify</h3>
+          <p>First place at Sustainable Business Goal Hackathon</p>
+          <img src="cover/refi.png" alt="Project 1">
+        </div>
+        <div class="project">
+          <h3>Moodeng</h3>
+          <p>Self-thought learning variable logic for animation in Figma</p>
+          <img src="cover/moodeng.gif" alt="Project 1">
+        </div>
+        <div class="project">
+          <h3>Coding I UnCommom Object</h3>
+          <p>Widen perspective what are uncommon project that cannot be detect</p>
+          <img src="cover/uncommon.gif" alt="Project 1">
+        </div>
+
+      </div>
+      <div class="column">
+        <div class="project">
+          <h3>Eco-Equity Girl</h3>
+          <p>First place at Beijing30+ by UN Women Korea and Ministry of Family</p>
+          <img src="cover/un.png" alt="Project 4">
+        </div>
+        <div class="project">
+          <h3>Belowtwo Project</h3>
+          <p>Translating high level report for better understanding</p>
+          <img src="cover/below.jpg" alt="Project 5">
+        </div>
+        <div class="project">
+          <h3>Coding I Stars from Math</h3>
+          <p>Discovering Spotify Cover from Math equation</p>
+          <img src="cover/star.gif" alt="Project 5">
+        </div>
+      </div>
+
+            <div class="column">
+          <div class="project">
+          <h3>AR Spark</h3>
+          <p>Self-thought learning mesh object detection </p>
+          <img src="cover/ar.gif" alt="Project 4">
+        </div>
+        <div class="project">
+          <h3>Coding I Redlist cam</h3>
+          <p>Advocate the extinction list of animals thorught their lens</p>
+          <img src="cover/redlist.gif" alt="Project 4">
+        </div>
+      </div>
+      <div class="column">
+        <div class="project">
+          <h3>Unplug sesh</h3>
+          <p>Things i love from exploring offline</p>
+          <img src="cover/like2.jpg" alt="Project 8">
+          <img src="cover/like3.jpg" alt="Project 8">
+        </div>
+              <div class="project">
+          <h3>Photography</h3>
+          <p>Adore to capture all moments</p>
+          <img src="cover/photo.jpg" alt="Project 5">
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <a href="https://www.linkedin.com/in/chanikarnkhim/" target="_blank">
+      <img src="icon/linkedin.svg" alt="LinkedIn">
+    </a>
+    <a href="mailto:chanikarnkhim@gmail.com">
+      <img src="icon/mail.svg" alt="Email">
+    </a>
+    <a href="https://instagram.com/iskhim" target="_blank">
+      <img src="icon/ig.svg" alt="Instagram">
+    </a>
+  </footer>
+  <div class="custom-cursor"></div>
+
+  <script>
+  const hamburger = document.querySelector('.hamburger');
+  const mobileNav = document.querySelector('.mobile-nav');
+
+  hamburger.addEventListener('click', () => {
+    mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+  });
+</script>
+
+</body>
+</html>
