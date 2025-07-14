@@ -14,7 +14,7 @@
     .nav-left { font-weight: 500; }
     .nav-right a { margin-left: 1.5rem; text-decoration: none; color: #333; font-weight: 500; }
     .nav-right a { margin-left: 1.5rem; text-decoration: none; color: #333; font-weight: 500; }
-    main { flex-grow: 1; padding: 2rem; overflow: hidden; text-align: left; max-width: 600px; margin: 0 auto; }
+    main { flex-grow: 1; padding: 2rem; overflow-y: auto; text-align: left; max-width: 600px; margin: 0 auto; }
         .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -25,11 +25,17 @@
   .grid {
     grid-template-columns: repeat(3, 1fr);
   }
+    .hamburger {
+    display: none;
+  }
 }
 
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .custom-cursor {
+    display: none;
   }
 }
 
@@ -37,17 +43,32 @@
   .grid {
     grid-template-columns: 1fr;
   }
+  .custom-cursor {
+    display: none;
+  }
 }
     p { font-weight: 400; font-size: 12px; margin-right: 72px; margin-left: 72px; margin-bottom: 16px; color: #555; justify-content: left }
     img { max-width: 100%; margin: 0rem 0; border-radius: 6px;transition: filter 0.3s ease }
     footer { position: sticky; bottom: 0; background: #ffffff; padding: 1rem 3rem; display: flex; justify-content: left; align-items: center; gap: 1rem; }
     footer img { width: 20px; height: 20px; }
-    .hamburger {
-  display: none;
-  font-size: 24px;
+    .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background-color: #DDED4B;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    }
+.hamburger {
+  display: none; /* <- Hide by default */
   background: none;
   border: none;
   cursor: pointer;
+  z-index: 1001;
 }
 
 .mobile-nav {
@@ -82,6 +103,10 @@
   }
 }
 
+.hamburger img {
+  width: 24px;
+  height: 24px;
+}
   </style>
 </head>
 <body>
@@ -92,7 +117,8 @@
       <a href="pleasure.html">Pleasure</a>
       <a href="about.html">About</a>
     </nav>
-        <button class="hamburger">&#9776;</button>
+        <button class="hamburger">  <img src="icon/rabbit.png" alt="Menu" />
+</button>
 
 <div class="mobile-nav">
   <a href="business.html">Business</a>
