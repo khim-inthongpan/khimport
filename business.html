@@ -220,20 +220,6 @@
   </footer>
   <div class="custom-cursor"></div>
 
-<script>
-    const password = "fromfastwork"; // set your password here
-  const userInput = prompt("Enter password to view this site:");
-
-  if (userInput !== password) {
-    document.body.innerHTML = "<h1 style='text-align:center;margin-top:20%'>Access Denied</h1>";
-  }
-  const cursor = document.querySelector('.custom-cursor');
-
-  document.addEventListener('mousemove', (e) => {
-    cursor.style.top = `${e.clientY}px`;
-    cursor.style.left = `${e.clientX}px`;
-  });
-</script>
 
 <script>
   const hamburger = document.querySelector('.hamburger');
