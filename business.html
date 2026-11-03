@@ -1,0 +1,400 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business Projects - Khim Inthongpan</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Karla', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      cursor: auto;
+    }
+
+    /* HEADER */
+
+    header, footer {
+      background: #ffffff;
+      padding: 1rem 3rem;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-left {
+      font-weight: 500;
+    }
+
+    .nav-right a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    /* MAIN CONTENT */
+
+    main {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      padding: 2rem 3rem;
+    }
+
+    /* FOUR COLUMN GRID */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      column-gap: clamp(16px, 2vw, 40px);
+      width: 100%;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    /* PROJECT CARDS */
+
+    .project {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: left;
+      min-width: 0;
+    }
+
+    .project img,
+    .project video {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      border-radius: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    .project h3 {
+      font-weight: 500;
+      font-size: 14px;
+      margin-bottom: 8px;
+      text-align: left;
+    }
+
+    .project p {
+      font-weight: 400;
+      font-size: 12px;
+      margin-bottom: 8px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .project a {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    img {
+      max-width: 100%;
+      margin: 0.5rem 0;
+      border-radius: 6px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      position: sticky;
+      bottom: 0;
+      background: #ffffff;
+      padding: 1rem 3rem;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    footer img {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* HAMBURGER MENU */
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .hamburger img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: white;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .mobile-nav a {
+      font-size: 24px;
+      margin: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .mobile-nav .close-btn {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+    }
+
+    /* RESPONSIVE BREAKPOINTS */
+
+    @media (max-width: 1200px) {
+      .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        column-gap: 24px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 20px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header, footer {
+        padding: 1rem 1.5rem;
+      }
+
+      main {
+        padding: 1rem;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .nav-right {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+    <div class="nav-left">Khim Inthongpan</div>
+
+    <nav class="nav-right">
+      <a href="business.html">Business</a>
+      <a href="pleasure.html">Pleasure</a>
+      <a href="about.html">About</a>
+    </nav>
+
+    <button class="hamburger">
+      <img src="icon/rabbit.png" alt="Menu" />
+    </button>
+  </header>
+
+
+  <!-- PROJECTS -->
+
+  <main>
+    <div class="grid">
+
+      <!-- COLUMN 1 -->
+
+      <div class="column">
+
+        <div class="project">
+          <h3>Samitivej I Well Application</h3>
+          <p>Making healthcare feel a little more personal. Bringing everyday wellness, hospital services, and commerce into one connected experience.</p>
+          <img src="cover/well.webp" alt="Samitivej Well Application">
+        </div>
+
+        <div class="project">
+          <h3>COM7 I Case Club</h3>
+          <p>A little space for self-expression. Turning phone case shopping into a playground where everyone gets to make something their own.</p>
+          <img src="cover/case.webp" alt="COM7 Case Club">
+          <a href="https://www.caseclub.in.th/en/personalization-cases"_blank" rel="noopener noreferrer">Go to Website</a>
+        </div>
+
+        <div class="project">
+          <h3>Sand Studio I Valentine</h3>
+          <p>A little love, a little motion. Exploring playful visual storytelling for a Valentine's Day social campaign.</p>
+          <img src="cover/heart.webp" alt="Valentine Motion Exploration">
+        </div>
+
+      </div>
+
+
+      <!-- COLUMN 2 -->
+
+      <div class="column">
+
+        <div class="project">
+          <h3>Edsy I AI Learning Tool</h3>
+          <p>Making English practice feel less like studying. Exploring how AI can help Thai students build confidence through one-on-one conversations.</p>
+          <img src="cover/edsy.webp" alt="Edsy AI Learning Tool">
+
+          <a href="https://www.edsy.co/" target="_blank" rel="noopener noreferrer">Go to Website</a>
+          <a href="https://ux-design-awards.com/winners/2026-2-edsy-ai-coach" target="_blank" rel="noopener noreferrer">UX Design Awards 2026</a>
+        </div>
+
+        <div class="project">
+          <h3>Betagro I WeBuddy</h3>
+          <p>Bringing pet essentials into one place, from personalized freshly prepared meals to subscriptions and everyday services.</p>
+          <img src="cover/buddy.png" alt="Betagro WeBuddy">
+        </div>
+
+        <div class="project">
+          <h3>TTB I Smart Protect</h3>
+          <p>Making insurance a little easier to navigate. Helping people understand their protection needs and find coverage that makes sense.</p>
+          <img src="cover/ttb.webp" alt="TTB Smart Protect">
+        </div>
+
+      </div>
+
+
+      <!-- COLUMN 3 -->
+
+      <div class="column">
+
+        <div class="project">
+          <h3>FSB I International School Website</h3>
+          <p>Four languages, one design system. Using Figma's theming features to make multilingual experiences feel seamless.</p>
+          <img src="cover/fsb.webp" alt="FSB International School Website">
+        </div>
+
+        <div class="project">
+          <h3>Loft I Catalogue Website</h3>
+          <p>A catalogue with a little more personality. Bringing the brand to life through motion and a refreshed browsing experience.</p>
+          <img src="cover/loft1.png" alt="Loft Catalogue Website">
+          <img src="cover/loft2.webp" alt="Loft Website Motion">
+        </div>
+
+        <div class="project">
+          <h3>COM7 I BNN Solar</h3>
+          <p>Making solar investment easier to understand. Helping people explore energy usage, potential savings, and solutions that fit their homes.</p>
+          <img src="cover/bnn.webp" alt="COM7 BNN Solar">
+        </div>
+
+        <div class="project">
+          <h3>OPN I Storefront Editor</h3>
+          <p>A part of a creative technologist team working end to end experience design on interactive prototypes website builder for local e-commerce in Thailand.</p>
+          <img src="cover/opn.png" alt="OPN Storefront Editor">
+        </div>
+
+      </div>
+
+
+      <!-- COLUMN 4 -->
+
+      <div class="column">
+
+        <div class="project">
+          <h3>Banglalink I Telecom Application</h3>
+          <p>More than a telecom app. Reimagining a digital hub for entertainment, creativity, and business tools, from Canva to AI-powered products.</p>
+          <img src="cover/banglalink.webp" alt="Banglalink Telecom Application">
+        </div>
+
+        <div class="project">
+          <h3>Sand Studio I Photobooth</h3>
+          <p>Design meets vibe coding. Building a playful photobooth experience with custom stickers and a little room for fun.</p>
+          <img src="cover/booth.webp" alt="Photobooth Website">
+        </div>
+
+        <div class="project">
+          <h3>Betagro I Buddy Fresh</h3>
+          <p>A fresh take on pet nutrition. Exploring personalized meals prepared around each pet's individual needs.</p>
+          <img src="cover/fresh.png" alt="Betagro Buddy Fresh">
+          <img src="cover/fresh2.jpg" alt="Betagro Buddy Fresh">
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+    <a href="https://www.linkedin.com/in/chanikarnkhim/" target="_blank" rel="noopener noreferrer">
+      <img src="icon/linkedin.svg" alt="LinkedIn">
+    </a>
+
+    <a href="mailto:chanikarnkhim@gmail.com">
+      <img src="icon/mail.svg" alt="Email">
+    </a>
+
+    <a href="https://instagram.com/iskhim" target="_blank" rel="noopener noreferrer">
+      <img src="icon/ig.svg" alt="Instagram">
+    </a>
+  </footer>
+
+
+  <!-- MOBILE MENU SCRIPT -->
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const mobileNav = document.querySelector('.mobile-nav');
+
+    if (hamburger && mobileNav) {
+      hamburger.addEventListener('click', () => {
+        mobileNav.style.display =
+          mobileNav.style.display === 'flex' ? 'none' : 'flex';
+      });
+    }
+  </script>
+
+</body>
+</html>
