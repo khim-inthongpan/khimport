@@ -1,0 +1,1049 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>EDSY AI — Khim Inthongpan</title>
+  <meta name="description" content="A closer look at designing a more engaging English learning experience with EDSY AI.">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- PLUS JAKARTA SANS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --background: #ffffff;
+      --text: #171717;
+      --muted: #888888;
+      --line: #e9e9e9;
+      --accent: #DDED4B;
+      --font: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: var(--font);
+    }
+
+    html {
+      background: var(--background);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--background);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 14px;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+
+    /* =========================
+       PAGE TRANSITION
+    ========================= */
+
+    @keyframes pagePushUp {
+      from {
+        transform: translateY(100vh);
+      }
+
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    .page-shell {
+      min-height: 100vh;
+      opacity: 1;
+      transform: translateY(0);
+
+      animation: pagePushUp 1s cubic-bezier(0.7, 0, 0.3, 1) both;
+
+      transition:
+        transform 1s cubic-bezier(0.7, 0, 0.3, 1),
+        opacity 0.8s ease;
+    }
+
+    .page-shell.page-exit {
+      transform: translateY(100vh);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+
+    /* =========================
+       STICKY HEADER
+    ========================= */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 76px;
+      padding: 0 4vw;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+
+      z-index: 10000;
+    }
+
+    .header-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: normal;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    .close-link {
+      width: 34px;
+      height: 34px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+    }
+
+    .close-link img {
+      width: 10px;
+      height: 10px;
+      object-fit: contain;
+    }
+
+    .close-link:hover {
+      opacity: 0.5;
+      transform: rotate(90deg);
+    }
+
+
+    /* =========================
+       ARTICLE LAYOUT
+    ========================= */
+
+    main {
+      width: 100%;
+      padding: 64px 24px 120px;
+    }
+
+    article {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .project-caption {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(34px, 5vw, 46px);
+      font-weight: 600;
+      letter-spacing: -0.075em;
+      line-height: 1.15;
+      max-width: 620px;
+      margin-bottom: 24px;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 34px;
+    }
+
+    .article-meta span + span::before {
+      content: "·";
+      margin-right: 16px;
+      color: #bbbbbb;
+    }
+
+    .intro {
+      font-size: 16px;
+      line-height: 1.85;
+      font-weight: 400;
+      letter-spacing: -0.025em;
+      margin-bottom: 48px;
+    }
+
+
+    /* =========================
+       ARTICLE TYPOGRAPHY
+    ========================= */
+
+    h2 {
+      font-size: 25px;
+      font-weight: 600;
+      letter-spacing: -0.055em;
+      line-height: 1.35;
+      margin-bottom: 22px;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      margin: 32px 0 12px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 13px;
+      line-height: 1.95;
+      color: #454545;
+    }
+
+    strong {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--line);
+      margin: 70px 0 44px;
+    }
+
+    .section-number {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .pull-quote {
+      border-left: 2px solid var(--accent);
+      padding: 8px 0 8px 22px;
+      margin: 42px 0;
+
+      font-size: 20px;
+      line-height: 1.6;
+      letter-spacing: -0.045em;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 18px 0 28px;
+    }
+
+    li {
+      color: #454545;
+      font-size: 13px;
+      line-height: 1.9;
+      margin-bottom: 8px;
+    }
+
+
+    /* =========================
+       IMAGES
+    ========================= */
+
+    figure {
+      margin: 48px 0;
+    }
+
+    figure img {
+      width: 100%;
+      height: auto;
+      border-radius: 3px;
+    }
+
+    figcaption {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.6;
+    }
+
+    .wide-image {
+      width: calc(100% + 160px);
+      max-width: none;
+      margin-left: -80px;
+    }
+
+    .wide-image img {
+      width: 100%;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 42px 0;
+    }
+
+    .image-grid figure {
+      margin: 0;
+    }
+
+
+    /* =========================
+       ENDING
+    ========================= */
+
+    .article-ending {
+      margin-top: 80px;
+      padding-top: 30px;
+      border-top: 1px solid var(--line);
+    }
+
+    .article-ending h2 {
+      margin-bottom: 22px;
+    }
+
+
+    /* =========================
+       ORIGINAL FOOTER
+    ========================= */
+
+    footer {
+      position: sticky;
+      bottom: 0;
+      background: #ffffff;
+      padding: 1rem 3rem;
+
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    footer img {
+      width: 20px;
+      height: 20px;
+    }
+
+
+    /* =========================
+       READING PROGRESS BAR
+    ========================= */
+
+    .reading-progress {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+
+      width: 100%;
+      height: 4px;
+
+      background: #eeeeee;
+
+      z-index: 99999;
+      pointer-events: none;
+
+      opacity: 1;
+      visibility: visible;
+
+      transition: opacity 0.5s ease;
+    }
+
+    .reading-progress-fill {
+      width: 0%;
+      height: 100%;
+      background: #DDED4B;
+
+      transition: width 0.12s linear;
+    }
+
+    .reading-progress.hide {
+      opacity: 0;
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 900px) {
+      .wide-image {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .site-header {
+        height: 64px;
+        padding: 0 20px;
+      }
+
+      main {
+        padding: 40px 22px 90px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .intro {
+        font-size: 14px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      .image-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .section-divider {
+        margin: 52px 0 36px;
+      }
+
+      figure {
+        margin: 34px 0;
+      }
+
+      footer {
+        padding: 1rem 1.25rem;
+      }
+    }
+
+
+    /* =========================
+       REDUCED MOTION
+    ========================= */
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .page-shell,
+      .reading-progress,
+      .reading-progress-fill {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- PAGE CONTENT: HEADER, ARTICLE AND FOOTER MOVE TOGETHER -->
+
+  <div class="page-shell" id="page-shell">
+
+    <!-- STICKY HEADER -->
+
+    <header class="site-header">
+
+      <a href="index.html" class="header-name">
+        Khim Inthongpan
+      </a>
+
+      <a
+        href="business.html"
+        class="close-link"
+        id="close-edsy"
+        aria-label="Back to business projects"
+      >
+        <img src="icon/x.svg" alt="">
+      </a>
+
+    </header>
+
+
+    <!-- ARTICLE -->
+
+    <main>
+
+      <article id="article">
+
+        <!-- INTRO -->
+
+        <div class="project-caption">
+          EDSY AI / Product Design / Case Study
+        </div>
+
+        <h1>
+          How do we make learning English feel a little more engaging?
+        </h1>
+
+        <div class="article-meta">
+          <span id="reading-time">5 min read</span>
+          <span>Product Design</span>
+          <span>2026</span>
+        </div>
+
+        <p class="intro">
+          Learning a language is already a big task. Doing it through a screen,
+          in a busy classroom, with different devices and different levels of
+          confidence? That's another story. Here's how we looked at the real
+          learning experience behind EDSY and explored ways to make it feel
+          more engaging, approachable, and a little more fun.
+        </p>
+
+        <figure class="wide-image">
+          <img src="edsy/cover.jpg" alt="EDSY AI project cover">
+          <figcaption>
+            Rethinking the everyday English learning experience.
+          </figcaption>
+        </figure>
+
+
+        <!-- SECTION 01 -->
+
+        <div class="section-divider"></div>
+
+        <div class="section-number">
+          01 / A LITTLE FIELD TRIP
+        </div>
+
+        <h2>A little field trip to the classroom.</h2>
+
+        <p>
+          Before jumping into screens and interactions, I wanted to understand
+          what using EDSY actually looked like in a real classroom.
+        </p>
+
+        <p>
+          So we went to schools, observed students using the platform, and
+          talked with teachers about what was working and what wasn't. It was
+          a chance to look beyond the ideal user journey and see what happened
+          when the product met everyday classroom life.
+        </p>
+
+        <figure>
+          <img src="edsy/classroom.jpg" alt="Students using EDSY in a classroom">
+          <figcaption>
+            Observing how students use EDSY during classroom activities.
+          </figcaption>
+        </figure>
+
+        <h3>01. Audio and environment constraints</h3>
+
+        <p>
+          In a shared classroom, up to 20 students could take tests at the same
+          time. That meant overlapping audio, background conversations, and
+          plenty of distractions. Listening exercises that were meant to test
+          comprehension became much harder to complete.
+        </p>
+
+        <h3>02. Individual learning, shared classrooms</h3>
+
+        <p>
+          Students naturally helped each other when they got stuck. It's a
+          lovely thing to see, but it also made individual assessment less
+          reliable. Sometimes, the answer on the screen wasn't necessarily
+          the answer the student had figured out on their own.
+        </p>
+
+        <h3>03. Two learning tracks, one student</h3>
+
+        <p>
+          The online curriculum and classroom teaching didn't always connect.
+          Students could find themselves moving between two learning tracks,
+          while teachers needed a clearer way to follow up on what was happening
+          in the platform.
+        </p>
+
+        <div class="pull-quote">
+          The classroom is not a quiet, perfectly controlled environment.
+          The product had to work with the reality of how students learn.
+        </div>
+
+        <h3>04. Different devices, different experiences</h3>
+
+        <p>
+          Students used different devices, screen sizes, and browsers. An
+          experience that looked fine on one screen could feel cramped or
+          inconsistent on another. We needed to make the interface more
+          predictable without losing sight of the existing MVP.
+        </p>
+
+
+        <!-- SECTION 02 -->
+
+        <div class="section-divider"></div>
+
+        <div class="section-number">
+          02 / THE EXPERIENCE
+        </div>
+
+        <h2>Okay, so how do we make learning more engaging?</h2>
+
+        <p>
+          Once we had a better picture of the classroom, the next question was
+          how to make the experience feel easier to follow and more rewarding
+          to come back to.
+        </p>
+
+        <p>
+          I explored a few behavioral design directions: making progress more
+          visible, giving students clearer feedback, encouraging participation,
+          and reducing the little moments of friction that can interrupt a
+          learning session.
+        </p>
+
+        <figure class="wide-image">
+          <img src="edsy/behave.jpg" alt="EDSY behavioral design explorations">
+        </figure>
+
+        <p>
+          The idea wasn't to add more things to the screen. It was to make each
+          interaction feel more understandable, give students a reason to stay
+          engaged, and help them see that they're moving forward.
+        </p>
+
+
+        <!-- SECTION 03 -->
+
+        <div class="section-divider"></div>
+
+        <div class="section-number">
+          03 / A SMALL INTERACTION EXPERIMENT
+        </div>
+
+        <h2>The button experiment. Yes, just a button.</h2>
+
+        <p>
+          Sometimes the smallest interactions deserve a little attention.
+          I explored how a button could feel more responsive and satisfying
+          when a student taps it.
+        </p>
+
+        <p>
+          There's also the reality of internet connectivity. When a connection
+          is unstable, an action might take longer than expected. Without
+          feedback, students may wonder whether the button worked and tap it
+          again.
+        </p>
+
+        <figure class="wide-image">
+          <img src="edsy/button.gif" alt="EDSY button interaction prototype">
+        </figure>
+
+        <p>
+          The experiment explored how the button could acknowledge a tap
+          immediately, then communicate that something was still processing.
+          The goal was to make the wait feel less uncertain, rather than leave
+          students wondering what happened.
+        </p>
+
+        <div class="pull-quote">
+          The internet doesn't always cooperate. At least the interface can
+          tell you what's going on.
+        </div>
+
+
+        <!-- SECTION 04 -->
+
+        <div class="section-divider"></div>
+
+        <div class="section-number">
+          04 / A LITTLE PERSONALITY
+        </div>
+
+        <h2>Meet the new EDSY sidekick.</h2>
+
+        <p>
+          A learning platform doesn't have to feel serious all the time.
+          I explored how the EDSY mascot could become a more recognizable
+          companion throughout the experience.
+        </p>
+
+        <figure class="wide-image">
+          <img src="edsy/mascot.jpg" alt="EDSY mascot design exploration">
+          <figcaption>
+            Giving the EDSY mascot a little more personality.
+          </figcaption>
+        </figure>
+
+        <p>
+          Instead of simply adding AI-themed accessories, the direction was
+          to make the mascot feel friendly, intelligent, and interactive.
+          Small animations and responses could give the experience a little
+          more life.
+        </p>
+
+        <p>
+          I also explored different mascot variations as profile avatars.
+          This gives students a way to express a little bit of themselves
+          and feel more connected to the learning environment.
+        </p>
+
+
+        <!-- SECTION 05 -->
+
+        <div class="section-divider"></div>
+
+        <div class="section-number">
+          05 / LEARNING BY DOING
+        </div>
+
+        <h2>Different exercises, different little interactions.</h2>
+
+        <p>
+          Not every English exercise should feel the same. Different skills
+          call for different ways to interact, so I explored a range of
+          exercise formats that could make learning feel more active.
+        </p>
+
+        <div class="wide-image">
+
+          <figure>
+            <img src="edsy/exercises.jpg" alt="EDSY learning exercise interface">
+            <figcaption>
+              Vocabulary and fill-in-the-blank exercises and Speaking and audio-based activities.
+            </figcaption>
+          </figure>
+
+        </div>
+
+        <p>
+          The explorations included fill-in-the-blank questions, vocabulary
+          matching, reading words with audio, and speaking activities where
+          students could record their voices.
+        </p>
+
+        <p>
+          Each format has its own little interaction. The goal was to keep
+          the experience varied while making the next step clear and easy
+          to understand.
+        </p>
+
+
+        <!-- SECTION 06 -->
+
+        <div class="section-divider"></div>
+
+        <div class="section-number">
+          06 / THE PRACTICAL STUFF
+        </div>
+
+        <h2>Designing for the devices students actually have.</h2>
+
+        <p>
+          A good experience needs to hold up beyond the screen it was designed
+          on. With students using different devices and browsers, consistency
+          was an important part of the work.
+        </p>
+
+        <figure class="wide-image">
+          <img src="edsy/responsive.jpg" alt="EDSY responsive interface explorations">
+          <figcaption>
+            Responsive layouts and interface patterns across screen sizes.
+          </figcaption>
+        </figure>
+
+        <p>
+          I focused on creating more consistent layouts and interaction
+          patterns while working within the constraints of the existing MVP.
+          The aim was to make the platform feel familiar and usable, even
+          when the screen changed.
+        </p>
+
+
+        <!-- SECTION 07 -->
+
+        <div class="section-divider"></div>
+
+        <div class="section-number">
+          07 / BRINGING IT TOGETHER
+        </div>
+
+        <h2>Putting all the little pieces together.</h2>
+
+        <p>
+          This project was a reminder that improving a learning experience
+          doesn't always mean introducing one big new feature. Sometimes
+          it's about noticing the small things that make a session harder
+          than it needs to be.
+        </p>
+
+        <p>
+          From classroom observations to interaction experiments, mascot
+          explorations, exercise formats, and responsive layouts, each part
+          helped shape a more approachable experience for students.
+        </p>
+
+        <figure class="wide-image">
+          <img src="edsy/final.jpg" alt="EDSY AI final design overview">
+          <figcaption>
+            A collection of EDSY design explorations.
+          </figcaption>
+        </figure>
+
+
+        <!-- FINAL NOTE -->
+
+        <div class="article-ending">
+
+          <div class="section-number">A LITTLE NOTE BEFORE YOU GO</div>
+
+          <h2>And that's a wrap.</h2>
+
+          <p>
+            Working on EDSY made me appreciate the details that are easy to overlook
+            when designing digital products. A classroom isn't a controlled environment.
+            An internet connection isn't always perfect. And students don't always behave
+            the way we expect them to. That's exactly why observing real people matters.
+          </p>
+
+          <p>
+            Sometimes the most interesting design decisions don't come from adding another
+            feature or creating a completely new interface. They come from noticing something small
+            like a student struggling to hear an exercise, someone waiting for a button to respond,
+            or a little opportunity to make an ordinary interaction feel more fun.
+          </p>
+
+          <p>
+            Because at the end of the day, we're not just designing screens for students to complete.
+            We're designing experiences that make them want to keep learning. And that's the fun part.
+          </p>
+
+        </div>
+
+      </article>
+
+    </main>
+
+
+    <!-- ORIGINAL FOOTER: UNCHANGED -->
+
+    <footer>
+      <a href="https://www.linkedin.com/in/chanikarnkhim/" target="_blank" rel="noopener noreferrer">
+        <img src="icon/linkedin.svg" alt="LinkedIn">
+      </a>
+
+      <a href="mailto:chanikarnkhim@gmail.com">
+        <img src="icon/mail.svg" alt="Email">
+      </a>
+
+      <a href="https://instagram.com/iskhim" target="_blank" rel="noopener noreferrer">
+        <img src="icon/ig.svg" alt="Instagram">
+      </a>
+    </footer>
+
+  </div>
+
+
+  <!-- FIXED READING PROGRESS BAR: OUTSIDE PAGE SHELL -->
+
+  <div class="reading-progress" aria-hidden="true">
+    <div
+      class="reading-progress-fill"
+      id="reading-progress-fill">
+    </div>
+  </div>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    /* =========================
+       AUTOMATIC READING TIME
+    ========================= */
+
+    const article = document.getElementById('article');
+    const readingTime = document.getElementById('reading-time');
+
+    function calculateReadingTime() {
+      const text = article.innerText || article.textContent;
+      const words = text.trim().split(/\s+/).filter(Boolean).length;
+
+      const minutes = Math.max(1, Math.ceil(words / 200));
+
+      readingTime.textContent = `${minutes} min read`;
+    }
+
+    calculateReadingTime();
+
+
+    /* =========================
+       READING PROGRESS
+    ========================= */
+
+    const progressFill = document.getElementById('reading-progress-fill');
+    const progressBar = document.querySelector('.reading-progress');
+    const pageShell = document.getElementById('page-shell');
+    const closeButton = document.getElementById('close-edsy');
+
+    let endTimer = null;
+    let pageIsClosing = false;
+
+    const END_DELAY = 2000;
+    const EXIT_DURATION = 1000;
+    const END_THRESHOLD = 0.999;
+
+
+    function getReadingProgress() {
+      const scrollTop = window.scrollY;
+
+      const scrollableHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+
+      if (scrollableHeight <= 0) {
+        return 0;
+      }
+
+      return Math.min(
+        Math.max(scrollTop / scrollableHeight, 0),
+        1
+      );
+    }
+
+
+    function updateReadingProgress() {
+      if (pageIsClosing) return;
+
+      const progress = getReadingProgress();
+
+      progressFill.style.width = `${progress * 100}%`;
+
+      if (progress >= END_THRESHOLD) {
+        startEndCountdown();
+      } else {
+        cancelEndCountdown();
+      }
+    }
+
+
+    /* =========================
+       END-OF-ARTICLE COUNTDOWN
+    ========================= */
+
+    function startEndCountdown() {
+      if (endTimer !== null || pageIsClosing) return;
+
+      endTimer = window.setTimeout(() => {
+        closePage();
+      }, END_DELAY);
+    }
+
+
+    function cancelEndCountdown() {
+      if (endTimer !== null) {
+        window.clearTimeout(endTimer);
+        endTimer = null;
+      }
+    }
+
+
+    /* =========================
+       SHARED PAGE EXIT
+       X BUTTON + STORY COMPLETION
+    ========================= */
+
+    function closePage() {
+      if (pageIsClosing) return;
+
+      pageIsClosing = true;
+      cancelEndCountdown();
+
+      pageShell.style.animation = 'none';
+
+      requestAnimationFrame(() => {
+
+        pageShell.classList.add('page-exit');
+
+        progressBar.classList.add('hide');
+
+        window.setTimeout(() => {
+          window.location.href = 'business.html';
+        }, EXIT_DURATION);
+
+      });
+    }
+
+
+    /* =========================
+       X BUTTON
+    ========================= */
+
+    closeButton.addEventListener('click', event => {
+      event.preventDefault();
+      closePage();
+    });
+
+
+    /* =========================
+       SCROLL EVENTS
+    ========================= */
+
+    window.addEventListener(
+      'scroll',
+      updateReadingProgress,
+      { passive: true }
+    );
+
+    window.addEventListener(
+      'resize',
+      updateReadingProgress
+    );
+
+    window.addEventListener(
+      'load',
+      updateReadingProgress
+    );
+
+    updateReadingProgress();
+
+
+    /* =========================
+       REDUCED MOTION SUPPORT
+    ========================= */
+
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    );
+
+    if (prefersReducedMotion.matches) {
+      pageShell.style.transition = 'none';
+      pageShell.style.animation = 'none';
+    }
+
+  </script>
+
+</body>
+</html>

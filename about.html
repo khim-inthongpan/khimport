@@ -1,167 +1,295 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="icon" type="image/png" href="favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-  <title>About</title>
-  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>About — Khim Inthongpan</title>
+
+  <!-- Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Karla', sans-serif; }
-    html, body { height: 100%; overflow: hidden; }
-    body { display: flex; flex-direction: column; }
-    header, footer { background: #ffffff; padding: 1rem 3rem; }
-    header { display: flex; justify-content: space-between; align-items: center; border-bottom: none; }
-    .nav-left { font-weight: 500; }
-    .nav-right a { margin-left: 1.5rem; text-decoration: none; color: #333; font-weight: 500; }
-    .nav-right a { margin-left: 1.5rem; text-decoration: none; color: #333; font-weight: 500; }
-    main { flex-grow: 1; padding: 2rem; overflow-y: auto; text-align: left; max-width: 600px; margin: 0 auto; }
-        .grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
-@media (max-width: 1200px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-    .hamburger {
-    display: none;
-  }
-}
-
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .custom-cursor {
-    display: none;
-  }
-}
-
-@media (max-width: 600px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-  .custom-cursor {
-    display: none;
-  }
-}
-    p { font-weight: 400; font-size: 12px; margin-right: 72px; margin-left: 72px; margin-bottom: 16px; color: #555; justify-content: left }
-    img { max-width: 100%; margin: 0rem 0; border-radius: 6px;transition: filter 0.3s ease }
-    footer { position: sticky; bottom: 0; background: #ffffff; padding: 1rem 3rem; display: flex; justify-content: left; align-items: center; gap: 1rem; }
-    footer img { width: 20px; height: 20px; }
-    .custom-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 12px;
-    height: 12px;
-    background-color: #DDED4B;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
     }
-.hamburger {
-  display: none; /* <- Hide by default */
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 1001;
-}
 
-.mobile-nav {
-  display: none;
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  width: 100%;
-  background-color: white;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
 
-.mobile-nav a {
-  font-size: 24px;
-  margin: 20px;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-}
+    body {
+      display: flex;
+      flex-direction: column;
+    }
 
-@media (max-width: 600px) {
-  .nav-right {
-    display: none;
-  }
+    header, footer {
+      background: #ffffff;
+      padding: 1rem 3rem;
+    }
 
-  .hamburger {
-    display: block;
-  }
-}
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: none;
+    }
 
-.hamburger img {
-  width: 24px;
-  height: 24px;
-}
+    .nav-left {
+      font-weight: 500;
+    }
+
+    .nav-right a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    main {
+      flex-grow: 1;
+      padding: 2rem;
+      overflow-y: auto;
+      text-align: left;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 12px;
+      margin-right: 72px;
+      margin-left: 72px;
+      margin-bottom: 16px;
+      color: #555;
+      justify-content: left;
+    }
+
+    img {
+      max-width: 100%;
+      margin: 0;
+      border-radius: 6px;
+      transition: filter 0.3s ease;
+    }
+
+    /* Footer */
+    footer {
+      position: sticky;
+      bottom: 0;
+      background: #ffffff;
+      padding: 1rem 3rem;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    footer img {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Custom cursor */
+    .custom-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 12px;
+      height: 12px;
+      background-color: #DDED4B;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .hamburger img {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Mobile navigation */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: 100%;
+      background-color: white;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .mobile-nav a {
+      font-size: 24px;
+      margin: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .custom-cursor {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .custom-cursor {
+        display: none;
+      }
+
+      .nav-right {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      header, footer {
+        padding: 1rem 1.25rem;
+      }
+
+      main {
+        padding: 2rem 1.25rem;
+      }
+
+      p {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+
   </style>
 </head>
+
 <body>
+
   <header>
     <div class="nav-left">Khim Inthongpan</div>
+
     <nav class="nav-right">
       <a href="business.html">Business</a>
       <a href="pleasure.html">Pleasure</a>
       <a href="about.html">About</a>
     </nav>
-        <button class="hamburger">  <img src="icon/favicon.svg" alt="Menu" />
-</button>
 
-<div class="mobile-nav">
-  <a href="business.html">Business</a>
-  <a href="pleasure.html">Pleasure</a>
-  <a href="about.html">About</a>
-</div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <img src="icon/favicon.svg" alt="Menu">
+    </button>
+
+    <div class="mobile-nav">
+      <a href="business.html">Business</a>
+      <a href="pleasure.html">Pleasure</a>
+      <a href="about.html">About</a>
+    </div>
   </header>
 
+
   <main>
-    <p>Khim Inthongpan is a designer whose work explores how people navigate systems both digital and social and how design can soften complexity without losing nuance. Her early work focused on climate glimpses, social innovation, and intervention strategies threads that continue to shape her design sensibility today. 
-    <p>Her interests span service design, visual storytelling, research-driven strategy, and tools that center empathy in everyday experiences. Her projects range from co-creating learning platforms that bridge cultures and languages, to redesigning public service flows for inclusivity, and shaping brand led digital experiences that feel both intuitive and intentional. As part of a consultancy, she’s worked across industries often translating between stakeholders, users, and developers to find clarity in constraint.
-    <p>Khim holds a Bachelor of Arts in Global Studies and Social Entrepreneurship with a focus in Intervention and Social Innovation, and currently leads projects at Sand Studio & Co.</p>
+
+    <p>
+      Khim Inthongpan is a designer whose work explores how people navigate
+      systems both digital and social and how design can soften complexity
+      without losing nuance. Her early work focused on climate glimpses,
+      social innovation, and intervention strategies threads that continue
+      to shape her design sensibility today.
+    </p>
+
+    <p>
+      Her interests span service design, visual storytelling, research-driven
+      strategy, and tools that center empathy in everyday experiences. Her
+      projects range from co-creating learning platforms that bridge cultures
+      and languages, to redesigning public service flows for inclusivity,
+      and shaping brand led digital experiences that feel both intuitive
+      and intentional. As part of a consultancy, she’s worked across
+      industries often translating between stakeholders, users, and
+      developers to find clarity in constraint.
+    </p>
+
+    <p>
+      Khim holds a Bachelor of Arts in Global Studies and Social
+      Entrepreneurship with a focus in Intervention and Social Innovation,
+      and currently leads projects at Sand Studio & Co.
+    </p>
 
     <img src="cover/khim.png" alt="Portrait">
+
   </main>
 
+
   <footer>
-    <a href="https://www.linkedin.com/in/chanikarnkhim/" target="_blank">
+    <a href="https://www.linkedin.com/in/chanikarnkhim/" target="_blank" rel="noopener noreferrer">
       <img src="icon/linkedin.svg" alt="LinkedIn">
     </a>
+
     <a href="mailto:chanikarnkhim@gmail.com">
       <img src="icon/mail.svg" alt="Email">
     </a>
-    <a href="https://instagram.com/iskhim" target="_blank">
+
+    <a href="https://instagram.com/iskhim" target="_blank" rel="noopener noreferrer">
       <img src="icon/ig.svg" alt="Instagram">
     </a>
   </footer>
+
+
   <div class="custom-cursor"></div>
 
-  <script>
-  const hamburger = document.querySelector('.hamburger');
-  const mobileNav = document.querySelector('.mobile-nav');
 
-  hamburger.addEventListener('click', () => {
-    mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
-  });
-</script>
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const mobileNav = document.querySelector('.mobile-nav');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileNav.style.display === 'flex';
+
+      mobileNav.style.display = isOpen ? 'none' : 'flex';
+      hamburger.setAttribute('aria-expanded', String(!isOpen));
+    });
+  </script>
 
 </body>
 </html>

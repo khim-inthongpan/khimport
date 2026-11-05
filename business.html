@@ -2,25 +2,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Business</title>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Business</title>
+  <title>Business — Khim Inthongpan</title>
 
-  <link rel="icon" type="image/png" href="favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- PLUS JAKARTA SANS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Karla', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
     html, body {
@@ -31,7 +30,11 @@
     body {
       display: flex;
       flex-direction: column;
-      cursor: auto;
+      cursor: none;
+    }
+
+    a, button {
+      cursor: none;
     }
 
     /* HEADER */
@@ -56,6 +59,10 @@
       text-decoration: none;
       color: #333;
       font-weight: 500;
+    }
+
+    .nav-right a:hover {
+      opacity: 0.55;
     }
 
     /* MAIN CONTENT */
@@ -124,13 +131,77 @@
       color: #555;
     }
 
+    .project a:hover {
+      color: #000;
+    }
+
     img {
       max-width: 100%;
       margin: 0.5rem 0;
       border-radius: 6px;
     }
 
-    /* FOOTER */
+    /* EDSY INTERACTIVE CARD */
+
+    .edsy-project {
+      position: relative;
+      cursor: none;
+      transition: transform 0.25s ease;
+    }
+
+    .edsy-project:hover {
+      transform: translateY(-3px);
+    }
+
+    .edsy-project:focus-visible {
+      outline: 2px solid #DDED4B;
+      outline-offset: 4px;
+    }
+
+    /* CUSTOM LIME CURSOR */
+
+    .custom-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #DDED4B;
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      color: #222;
+      font-size: 12px;
+      font-weight: 600;
+      overflow: hidden;
+      transition:
+        width 0s,
+        height 0s,
+        background 0s;
+    }
+
+    /* EXPANDED CURSOR ON EDSY */
+
+    .custom-cursor.read-mode {
+      width: 80px;
+      height: 80px;
+      background: #DDED4B;
+    }
+
+    .custom-cursor span {
+      opacity: 0;
+    }
+
+    .custom-cursor.read-mode span {
+      opacity: 1;
+    }
+
+    /* FOOTER — ORIGINAL DESIGN */
 
     footer {
       position: sticky;
@@ -154,7 +225,6 @@
       display: none;
       background: none;
       border: none;
-      cursor: pointer;
       z-index: 1001;
     }
 
@@ -189,6 +259,9 @@
       position: absolute;
       top: 1.5rem;
       right: 1.5rem;
+      background: none;
+      border: none;
+      font-size: 28px;
     }
 
     /* RESPONSIVE BREAKPOINTS */
@@ -230,6 +303,22 @@
       }
     }
 
+    /* TOUCH DEVICES */
+
+    @media (hover: none), (pointer: coarse) {
+      body, a, button {
+        cursor: auto;
+      }
+
+      .custom-cursor {
+        display: none;
+      }
+
+      .edsy-project {
+        cursor: pointer;
+      }
+    }
+
   </style>
 </head>
 
@@ -246,11 +335,20 @@
       <a href="about.html">About</a>
     </nav>
 
-    <button class="hamburger">
-      <img src="icon/favicon.svg" alt="Menu" />
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <img src="icon/favicon.svg" alt="Menu">
     </button>
   </header>
 
+  <!-- MOBILE NAVIGATION -->
+
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <button class="close-btn" aria-label="Close menu">×</button>
+
+    <a href="business.html">Business</a>
+    <a href="pleasure.html">Pleasure</a>
+    <a href="about.html">About</a>
+  </nav>
 
   <!-- PROJECTS -->
 
@@ -271,7 +369,7 @@
           <h3>COM7 I Case Club</h3>
           <p>A little space for self-expression. Turning phone case shopping into a playground where everyone gets to make something their own.</p>
           <img src="cover/case.webp" alt="COM7 Case Club">
-          <a href="https://www.caseclub.in.th/en/personalization-cases"_blank" rel="noopener noreferrer">Go to Website</a>
+          <a href="https://www.caseclub.in.th/en/personalization-cases" target="_blank" rel="noopener noreferrer">Go to Website</a>
         </div>
 
         <div class="project">
@@ -282,18 +380,32 @@
 
       </div>
 
-
       <!-- COLUMN 2 -->
 
       <div class="column">
 
-        <div class="project">
+        <div class="project edsy-project"
+             role="link"
+             tabindex="0"
+             aria-label="Explore the EDSY case study"
+             data-href="edsy.html">
+
           <h3>Edsy I AI Learning Tool</h3>
+
           <p>Making English practice feel less like studying. Exploring how AI can help Thai students build confidence through one-on-one conversations.</p>
+
           <img src="cover/edsy.webp" alt="Edsy AI Learning Tool">
 
-          <a href="https://www.edsy.co/" target="_blank" rel="noopener noreferrer">Go to Website</a>
-          <a href="https://ux-design-awards.com/winners/2026-2-edsy-ai-coach" target="_blank" rel="noopener noreferrer">UX Design Awards 2026</a>
+          <a href="https://www.edsy.co/" target="_blank" rel="noopener noreferrer">
+            Go to Website
+          </a>
+
+          <a href="https://ux-design-awards.com/winners/2026-2-edsy-ai-coach"
+             target="_blank"
+             rel="noopener noreferrer">
+            UX Design Awards 2026
+          </a>
+
         </div>
 
         <div class="project">
@@ -309,7 +421,6 @@
         </div>
 
       </div>
-
 
       <!-- COLUMN 3 -->
 
@@ -342,7 +453,6 @@
 
       </div>
 
-
       <!-- COLUMN 4 -->
 
       <div class="column">
@@ -371,8 +481,7 @@
     </div>
   </main>
 
-
-  <!-- FOOTER -->
+  <!-- FOOTER: ORIGINAL DESIGN -->
 
   <footer>
     <a href="https://www.linkedin.com/in/chanikarnkhim/" target="_blank" rel="noopener noreferrer">
@@ -388,19 +497,106 @@
     </a>
   </footer>
 
+  <!-- CUSTOM CURSOR -->
 
-  <!-- MOBILE MENU SCRIPT -->
+  <div class="custom-cursor" id="customCursor">
+    <span>Read me</span>
+  </div>
+
+  <!-- INTERACTIONS -->
 
   <script>
+
+    /* MOBILE MENU */
+
     const hamburger = document.querySelector('.hamburger');
     const mobileNav = document.querySelector('.mobile-nav');
+    const closeBtn = document.querySelector('.close-btn');
 
-    if (hamburger && mobileNav) {
-      hamburger.addEventListener('click', () => {
-        mobileNav.style.display =
-          mobileNav.style.display === 'flex' ? 'none' : 'flex';
+    function openMenu() {
+      mobileNav.style.display = 'flex';
+      hamburger.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeMenu() {
+      mobileNav.style.display = 'none';
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+
+    hamburger.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        closeMenu();
+      }
+    });
+
+
+    /* CUSTOM LIME CURSOR */
+
+    const cursor = document.getElementById('customCursor');
+    const edsyCard = document.querySelector('.edsy-project');
+
+    if (cursor) {
+      document.addEventListener('mousemove', event => {
+        cursor.style.left = `${event.clientX}px`;
+        cursor.style.top = `${event.clientY}px`;
+      });
+
+      document.addEventListener('mouseleave', () => {
+        cursor.style.opacity = '0';
+      });
+
+      document.addEventListener('mouseenter', () => {
+        cursor.style.opacity = '1';
       });
     }
+
+
+    /* EDSY CARD INTERACTION */
+
+    if (edsyCard && cursor) {
+
+      function openEdsy() {
+        window.location.href = edsyCard.dataset.href;
+      }
+
+      // Click anywhere on the card except external links.
+
+      edsyCard.addEventListener('click', event => {
+        if (event.target.closest('a')) return;
+        openEdsy();
+      });
+
+      // Keyboard accessibility.
+
+      edsyCard.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          if (event.target.closest('a')) return;
+
+          event.preventDefault();
+          openEdsy();
+        }
+      });
+
+      // Expand cursor when hovering over EDSY.
+
+      edsyCard.addEventListener('mouseenter', () => {
+        cursor.classList.add('read-mode');
+      });
+
+      // Return to small dot when leaving EDSY.
+
+      edsyCard.addEventListener('mouseleave', () => {
+        cursor.classList.remove('read-mode');
+      });
+    }
+
   </script>
 
 </body>
